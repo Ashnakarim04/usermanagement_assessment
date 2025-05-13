@@ -9,21 +9,21 @@ import { UserProvider } from './components/UserProvider';
 function App() {
   return (
     <>
-    <ToastContainer />
-       <UserProvider>
-      <Router>
-      <Routes>
-        <Route path="/register" element={<Register />} />
-        <Route path="/" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-     <Route path="/edituser/:id" element={<EditUser />} />       </Routes>
-        <ToastContainer position="top-right" autoClose={3000} />
-    </Router>
-       </UserProvider>
-    
+      <ToastContainer />
+      <UserProvider>
+        <Router>
+          <Routes>
+            <Route path="/register" element={<Register />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/edituser/:id" element={<EditUser />} />       </Routes>
+          <ToastContainer position="top-right" autoClose={3000} />
+        </Router>
+      </UserProvider>
+
     </>
-      
-    
+
+
   );
 }
 

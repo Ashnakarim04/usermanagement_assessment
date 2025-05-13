@@ -6,12 +6,10 @@ const path = require('path');
 const fs = require('fs');
 const multer = require('multer');
 const fileUpload = require('express-fileupload');
-// Ensure uploads folder exists
+
 if (!fs.existsSync('./uploads')) {
   fs.mkdirSync('./uploads');
 }
-
-// Import renamed route files
 const authRoute = require('./routes/authRoute');
 const itemsRoute = require('./routes/itemsRoute');
 
@@ -23,13 +21,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// Serve uploaded images
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-// Ensure uploads folder exists
-if (!fs.existsSync('./uploads')) {
-  fs.mkdirSync('./uploads');
-}
-// Connect to MongoDB
+
+
+// db connection
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true

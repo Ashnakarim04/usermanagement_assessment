@@ -29,155 +29,97 @@ const Login = () => {
     setErrors(newErrors);
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  if (!formData.email || !formData.password) {
-    toast.error('Please fill in all fields');
-    return;
-  }
-
-  if (Object.keys(errors).length === 0) {
-    try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', formData);
-      if (response.status === 200) {
-        localStorage.setItem('token', response.data.token); // make sure it's "token"
-        localStorage.setItem('userId', response.data.userId); // optional: if you return it
-        toast.success('Login successful!');
-        navigate('/dashboard');
-      }
-    } catch (error) {
-      toast.error(error.response?.data?.message || 'Login failed. Check your credentials.');
+    if (!formData.email || !formData.password) {
+      toast.error('Please fill in all fields');
+      return;
     }
-  } else {
-    toast.error('Please fix validation errors');
-  }
-};
+
+    if (Object.keys(errors).length === 0) {
+      try {
+        const response = await axios.post('http://localhost:5000/api/auth/login', formData);
+        if (response.status === 200) {
+          localStorage.setItem('token', response.data.token);
+          localStorage.setItem('userId', response.data.userId); 
+          toast.success('Login successful!');
+          navigate('/dashboard');
+        }
+      } catch (error) {
+        toast.error(error.response?.data?.message || 'Login failed. Check your credentials.');
+      }
+    } else {
+      toast.error('Please fix validation errors');
+    }
+  };
 
 
   return (
-    // <div className="maincontainer d-flex justify-content-center align-items-center min-vh-100">
-    //   <ToastContainer position="top-center" autoClose={3000} />
-    //   <div className="container2 d-flex w-100 h-100 bg-white shadow-lg">
-    //     <div className="d-none d-md-block flex-1">
-    //       <img
-    //         src="/login.avif"
-    //         alt="login"
-    //         className="img-fluid h-100 w-100 object-cover"
-    //       />
-    //     </div>
-    //     <div className="flex-1 d-flex align-items-center justify-content-center p-4 w-100">
-    //       <div className="w-100" style={{ maxWidth: '400px' }}>
-    //         <h2 className="text-center text-primary mb-4">Sign In User Management Portal</h2>
-    //         <Form onSubmit={handleSubmit}>
-    //           <FormGroup>
-    //             <Label for="email">Email</Label>
-    //             <Input
-    //               type="email"
-    //               id="email"
-    //               placeholder="Enter your email"
-    //               value={formData.email}
-    //               onChange={handleChange}
-    //               className={errors.email ? 'is-invalid' : ''}
-    //             />
-    //             {errors.email && <div className="text-danger small">{errors.email}</div>}
-    //           </FormGroup>
-
-    //           <FormGroup>
-    //             <Label for="password">Password</Label>
-    //             <Input
-    //               type="password"
-    //               id="password"
-    //               placeholder="Enter your password"
-    //               value={formData.password}
-    //               onChange={handleChange}
-    //               className={errors.password ? 'is-invalid' : ''}
-    //             />
-    //             {errors.password && <div className="text-danger small">{errors.password}</div>}
-    //           </FormGroup>
-
-    //           <div className="text-center mt-3">
-    //             <p className="small">
-    //               Don't have an account?{' '}
-    //               <Link to="/register" className="text-decoration-underline text-primary">
-    //                 Signup
-    //               </Link>
-    //             </p>
-    //           </div>
-
-    //           <Button color="primary" block className="rounded-pill mt-3">
-    //             Sign In
-    //           </Button>
-    //         </Form>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
+   
     <div className="maincontainer d-flex justify-content-center align-items-center min-vh-100">
-  <ToastContainer position="top-center" autoClose={3000} />
-  <div className="container2 bg-white shadow-lg w-100" style={{ maxWidth: '900px' }}>
-    <div className="row g-0 h-100" style={{ minHeight: '600px' }}>
-      
-      {/* Left Image Section */}
-      <div className="col-md-6 d-flex align-items-center">
-        <img
-          src="https://images.pexels.com/photos/9222422/pexels-photo-9222422.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-          alt="login"
-          className="img-fluid w-100 h-100"
-          style={{ objectFit: 'cover' }}
-        />
-      </div>
+      <ToastContainer position="top-center" autoClose={3000} />
+      <div className="container2 bg-white shadow-lg w-100" style={{ maxWidth: '900px' }}>
+        <div className="row g-0 h-100" style={{ minHeight: '600px' }}>
 
-      {/* Right Form Section */}
-      <div className="col-md-6 d-flex align-items-center justify-content-center p-4">
-        <div className="w-100" style={{ maxWidth: '400px' }}>
-          <h4 className="text-center text-primary mb-4">Sign In User Management Portal</h4>
-          <Form onSubmit={handleSubmit}>
-            <FormGroup>
-              <Label for="email">Email</Label>
-              <Input
-                type="email"
-                id="email"
-                placeholder="Enter your email"
-                value={formData.email}
-                onChange={handleChange}
-                className={errors.email ? 'is-invalid' : ''}
-              />
-              {errors.email && <div className="text-danger small">{errors.email}</div>}
-            </FormGroup>
+          <div className="col-md-6 d-flex align-items-center">
+            <img
+              src="https://images.pexels.com/photos/9222422/pexels-photo-9222422.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt="login"
+              className="img-fluid w-100 h-100"
+              style={{ objectFit: 'cover' }}
+            />
+          </div>
 
-            <FormGroup>
-              <Label for="password">Password</Label>
-              <Input
-                type="password"
-                id="password"
-                placeholder="Enter your password"
-                value={formData.password}
-                onChange={handleChange}
-                className={errors.password ? 'is-invalid' : ''}
-              />
-              {errors.password && <div className="text-danger small">{errors.password}</div>}
-            </FormGroup>
+          <div className="col-md-6 d-flex align-items-center justify-content-center p-4">
+            <div className="w-100" style={{ maxWidth: '400px' }}>
+              <h4 className="text-center text-primary mb-4">Sign In User Management Portal</h4>
+              <Form onSubmit={handleSubmit}>
+                <FormGroup>
+                  <Label for="email">Email</Label>
+                  <Input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className={errors.email ? 'is-invalid' : ''}
+                  />
+                  {errors.email && <div className="text-danger small">{errors.email}</div>}
+                </FormGroup>
 
-            <div className="text-center mt-3">
-              <p className="small">
-                Don't have an account?{' '}
-                <Link to="/register" className="text-decoration-underline text-primary">
-                  Signup
-                </Link>
-              </p>
+                <FormGroup>
+                  <Label for="password">Password</Label>
+                  <Input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    className={errors.password ? 'is-invalid' : ''}
+                  />
+                  {errors.password && <div className="text-danger small">{errors.password}</div>}
+                </FormGroup>
+
+                <div className="text-center mt-3">
+                  <p className="small">
+                    Don't have an account?{' '}
+                    <Link to="/register" className="text-decoration-underline text-primary">
+                      Signup
+                    </Link>
+                  </p>
+                </div>
+
+                <Button color="primary" block className="rounded-pill mt-3">
+                  Sign In
+                </Button>
+              </Form>
             </div>
+          </div>
 
-            <Button color="primary" block className="rounded-pill mt-3">
-              Sign In
-            </Button>
-          </Form>
         </div>
       </div>
-
     </div>
-  </div>
-</div>
 
   );
 };

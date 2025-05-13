@@ -2,11 +2,11 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const authMiddleware = require('../middleware/authMiddleware');
-const UserModel = require('../models/Usermodel'); // ✅ Consistent name
+const UserModel = require('../models/Usermodel'); 
 
 const router = express.Router();
 
-// User registration (match /api/auth/register)
+// User registration 
 router.post('/register', async (req, res) => {
     const { email, password } = req.body;
     const existingUser = await UserModel.findOne({ email });

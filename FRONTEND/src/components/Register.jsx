@@ -68,154 +68,83 @@ const Register = () => {
   };
 
   return (
-    // <div className="maincontainer d-flex align-items-center justify-content-center min-vh-100">
-    //   <ToastContainer position="top-center" autoClose={3000} />
-    //   <div className="container2 d-flex w-100 h-100 bg-white shadow-lg">
-    //     <div className="flex-1 d-flex align-items-center justify-content-center p-4 w-100">
-    //       <div className="w-100" style={{ maxWidth: '400px' }}>
-    //         <h2 className="text-center text-primary mb-4">Sign Up User Management Portal</h2>
-    //         <Form onSubmit={handleSubmit}>
-    //           <FormGroup>
-    //             <Label for="email">Email</Label>
-    //             <Input
-    //               type="email"
-    //               id="email"
-    //               placeholder="Enter your email"
-    //               value={formData.email}
-    //               onChange={handleChange}
-    //               className={errors.email ? 'is-invalid' : ''}
-    //             />
-    //             {errors.email && <div className="text-danger small">{errors.email}</div>}
-    //           </FormGroup>
 
-    //           <FormGroup>
-    //             <Label for="password">Password</Label>
-    //             <Input
-    //               type="password"
-    //               id="password"
-    //               placeholder="Enter your password"
-    //               value={formData.password}
-    //               onChange={handleChange}
-    //               className={errors.password ? 'is-invalid' : ''}
-    //             />
-    //             {errors.password && <div className="text-danger small">{errors.password}</div>}
-    //           </FormGroup>
-
-    //           <FormGroup>
-    //             <Label for="confirmPassword">Confirm Password</Label>
-    //             <Input
-    //               type="password"
-    //               id="confirmPassword"
-    //               placeholder="Re-enter your password"
-    //               value={formData.confirmPassword}
-    //               onChange={handleChange}
-    //               className={errors.confirmPassword ? 'is-invalid' : ''}
-    //             />
-    //             {errors.confirmPassword && <div className="text-danger small">{errors.confirmPassword}</div>}
-    //           </FormGroup>
-
-    //           <div className="text-center mt-3">
-    //             <p className="small">
-    //               Already have an account?{' '}
-    //               <Link to="/login" className="text-decoration-underline text-primary">
-    //                 Login
-    //               </Link>
-    //             </p>
-    //           </div>
-
-    //           <Button color="primary" block className="rounded-pill mt-3">
-    //             Sign Up
-    //           </Button>
-    //         </Form>
-    //       </div>
-    //     </div>
-    //     <div className="d-none d-md-block flex-1">
-    //       <img
-    //         src="https://img.freepik.com/free-photo/close-up-senior-couple-holding-hands_23-2148730091.jpg"
-    //         alt="signup"
-    //         className="img-fluid h-100 w-100 object-cover"
-    //       />
-    //     </div>
-    //   </div>
-    // </div>
     <div className="maincontainer d-flex align-items-center justify-content-center min-vh-100">
-  <ToastContainer position="top-center" autoClose={3000} />
-  <div className="container2 bg-white shadow-lg w-100" style={{ maxWidth: '900px' }}>
-    <div className="row g-0 h-100" style={{ minHeight: '600px' }}>
-      
-      {/* Form Section */}
-      <div className="col-md-6 d-flex align-items-center justify-content-center p-4">
-        <div className="w-100" style={{ maxWidth: '400px' }}>
-          <h4 className="text-center text-primary mb-4">Sign Up User Management Portal</h4>
-          <Form onSubmit={handleSubmit}>
-            <FormGroup>
-              <Label for="email">Email</Label>
-              <Input
-                type="email"
-                id="email"
-                placeholder="Enter your email"
-                value={formData.email}
-                onChange={handleChange}
-                className={errors.email ? 'is-invalid' : ''}
-              />
-              {errors.email && <div className="text-danger small">{errors.email}</div>}
-            </FormGroup>
+      <ToastContainer position="top-center" autoClose={3000} />
+      <div className="container2 bg-white shadow-lg w-100" style={{ maxWidth: '900px' }}>
+        <div className="row g-0 h-100" style={{ minHeight: '600px' }}>
 
-            <FormGroup>
-              <Label for="password">Password</Label>
-              <Input
-                type="password"
-                id="password"
-                placeholder="Enter your password"
-                value={formData.password}
-                onChange={handleChange}
-                className={errors.password ? 'is-invalid' : ''}
-              />
-              {errors.password && <div className="text-danger small">{errors.password}</div>}
-            </FormGroup>
+          <div className="col-md-6 d-flex align-items-center justify-content-center p-4">
+            <div className="w-100" style={{ maxWidth: '400px' }}>
+              <h4 className="text-center text-primary mb-4">Sign Up User Management Portal</h4>
+              <Form onSubmit={handleSubmit}>
+                <FormGroup>
+                  <Label for="email">Email</Label>
+                  <Input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className={errors.email ? 'is-invalid' : ''}
+                  />
+                  {errors.email && <div className="text-danger small">{errors.email}</div>}
+                </FormGroup>
 
-            <FormGroup>
-              <Label for="confirmPassword">Confirm Password</Label>
-              <Input
-                type="password"
-                id="confirmPassword"
-                placeholder="Re-enter your password"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                className={errors.confirmPassword ? 'is-invalid' : ''}
-              />
-              {errors.confirmPassword && <div className="text-danger small">{errors.confirmPassword}</div>}
-            </FormGroup>
+                <FormGroup>
+                  <Label for="password">Password</Label>
+                  <Input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    className={errors.password ? 'is-invalid' : ''}
+                  />
+                  {errors.password && <div className="text-danger small">{errors.password}</div>}
+                </FormGroup>
 
-            <div className="text-center mt-3">
-              <p className="small">
-                Already have an account?{' '}
-                <Link to="/" className="text-decoration-underline text-primary">
-                  Login
-                </Link>
-              </p>
+                <FormGroup>
+                  <Label for="confirmPassword">Confirm Password</Label>
+                  <Input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Re-enter your password"
+                    value={formData.confirmPassword}
+                    onChange={handleChange}
+                    className={errors.confirmPassword ? 'is-invalid' : ''}
+                  />
+                  {errors.confirmPassword && <div className="text-danger small">{errors.confirmPassword}</div>}
+                </FormGroup>
+
+                <div className="text-center mt-3">
+                  <p className="small">
+                    Already have an account?{' '}
+                    <Link to="/" className="text-decoration-underline text-primary">
+                      Login
+                    </Link>
+                  </p>
+                </div>
+
+                <Button color="primary" block className="rounded-pill mt-3">
+                  Sign Up
+                </Button>
+              </Form>
             </div>
+          </div>
 
-            <Button color="primary" block className="rounded-pill mt-3">
-              Sign Up
-            </Button>
-          </Form>
+          <div className="col-md-6 d-flex align-items-center">
+            <img
+              src="https://images.pexels.com/photos/5904074/pexels-photo-5904074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt="signup"
+              className="img-fluid w-100 h-100"
+              style={{ objectFit: 'cover' }}
+            />
+          </div>
+
         </div>
       </div>
-
-      {/* Image Section */}
-      <div className="col-md-6 d-flex align-items-center">
-        <img
-          src="https://images.pexels.com/photos/5904074/pexels-photo-5904074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-          alt="signup"
-          className="img-fluid w-100 h-100"
-          style={{ objectFit: 'cover' }}
-        />
-      </div>
-
     </div>
-  </div>
-</div>
 
   );
 };

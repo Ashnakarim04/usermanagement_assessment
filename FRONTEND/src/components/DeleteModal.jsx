@@ -4,28 +4,23 @@ import { useItemContext } from '../components/ItemContext';
 import { toast } from 'react-toastify';
 
 const DeleteModal = ({ show, handleClose, user }) => {
-  const { deleteUser, users, setUsers } = useItemContext(); // Ensure setUsers is available
+  const { deleteUser, users, setUsers } = useItemContext(); 
 
   const handleDelete = async () => {
     try {
-      // Send DELETE request to backend
       const response = await fetch(`http://localhost:5000/api/items/users/${user._id}`, {
         method: 'DELETE',
       });
 
       if (response.ok) {
-        // Update context state by removing the user locally
         const updatedUsers = users.filter((item) => item._id !== user._id);
-        setUsers(updatedUsers); // Update state in context
+        setUsers(updatedUsers); 
 
-        // Show success toast
         toast.success('User deleted successfully!');
       } else {
-        // Show error toast if deletion failed
         toast.error('Error deleting user!');
       }
 
-      // Close modal after handling success/error
       handleClose();
     } catch (error) {
       console.error('Error deleting user:', error);

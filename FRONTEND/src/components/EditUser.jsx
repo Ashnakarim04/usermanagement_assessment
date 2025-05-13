@@ -1,4 +1,3 @@
-// EditUser.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -13,7 +12,7 @@ const EditUser = () => {
 
   const roles = ['Admin', 'Student', 'Teaching Staff', 'Non-Teaching Staff'];
   const departments = ['Computer Science', 'Electronics', 'Mathematics', 'Commerce'];
- const statuses = ['Active', 'Inactive'];
+  const statuses = ['Active', 'Inactive'];
 
   useEffect(() => {
     if (id) {
@@ -49,7 +48,6 @@ const EditUser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate all fields
     const requiredFields = ['firstName', 'lastName', 'username', 'department', 'userRole', 'status', 'dob'];
     for (const field of requiredFields) {
       if (!user[field]) {
@@ -64,7 +62,7 @@ const EditUser = () => {
     });
 
     if (imageFile) {
-      formData.append('profileImage', imageFile); // Not 'photo'
+      formData.append('profileImage', imageFile); 
 
     }
 
@@ -125,7 +123,7 @@ const EditUser = () => {
                     onChange={handleChange}
                   />
                 </div>
-                 <div className="mb-3">
+                <div className="mb-3">
                   <label>Date of Birth</label>
                   <input
                     type="date"
@@ -181,9 +179,9 @@ const EditUser = () => {
                       </option>
                     ))}
                   </select>
-                  
+
                 </div>
-               
+
                 <div className="mb-3">
                   <label>Profile Image</label><br />
                   {imagePreview ? (
